@@ -1,0 +1,5 @@
+
+for((i=0;i<12;i++))
+do
+  a2b<mpicks.$[$i*10+5] n1=2>binmpicks.$[$i*10+5]
+done

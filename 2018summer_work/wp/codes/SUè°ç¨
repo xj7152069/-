@@ -1,0 +1,56 @@
+	/* Fourier transform dimension 1 */
+	pfa2rc(-1,1,nx1fft,nx2,rt[0],ct[0]);
+	
+	/* Fourier transform dimension 2 */
+	pfa2cc(-1,2,nK1,nK2,ct[0]);
+		
+	/* Compute and output amplitude spectrum */
+	for (ik2=0; ik2<nK2; ++ik2) {
+
+		/* do upper half of K-plane */
+		for (ik1=0; ik1<nK1; ++ik1)
+			outtrace.data[ik1] = rcabs(ct[nK2-1-ik2][nK1-1-ik1]);
+
+		/* build lower half plane from upper plane assuming symmetry */
+		for (ik1=nK1; ik1<nx1fft; ++ik1)
+			if (ik2<nK2-1)
+				outtrace.data[ik1] = rcabs(ct[ik2+1][ik1-nK1]);
+			else
+				outtrace.data[ik1] = rcabs(ct[0][ik1-nK1]);
+				
+				
+				
+				
+*****************************************************************************
+			
+void pfa2cc (int isign, int idim, int n1, int n2, complex z[]);
+void pfa2cr (int isign, int idim, int n1, int n2, complex cz[], float rz[]);
+void pfa2rc (int isign, int idim, int n1, int n2, float rz[], complex cz[]);			
+******************************************************************************
+pfa2cc:
+Input:
+isign       	sign of isign is the sign of exponent in fourier kernel
+idim        	dimension to transform, either 1 or 2 (see notes)
+n1          	1st (fast) dimension of array to be transformed (see notes)
+n2          	2nd (slow) dimension of array to be transformed (see notes)
+z           	array[n2][n1] of complex elements to be transformed in place
+
+Output:
+z		array[n2][n1] of complex elements transformed
+
+******************************************************************************			
+				
+				
+******************************************************************************
+pfa2rc:
+Input:
+isign       sign of isign is the sign of exponent in fourier kernel
+idim        dimension to transform, which must be either 1 or 2 (see notes)
+n1          1st (fast) dimension of array to be transformed (see notes)
+n2          2nd (slow) dimension of array to be transformed (see notes)
+rz          array of real values (may be equivalenced to cz)
+
+Output:
+cz          array of complex values (may be equivalenced to rz)
+
+******************************************************************************

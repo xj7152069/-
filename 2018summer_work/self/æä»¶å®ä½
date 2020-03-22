@@ -1,0 +1,24 @@
+文件定位
+　　和C的文件操作方式不同的是，C++ I/O系统管理两个与一个文件相联系的指针。一个是读指针，它说明输入操作在文件中的位置；另一个是写指针，它下次写操作的位置。每次执行输入或输出时，相应的指针自动变化。所以，C++的文件定位分为读位置和写位置的定位，对应的成员函数是 seekg()和 seekp()，seekg()是设置读位置，seekp是设置写位置。它们最通用的形式如下：
+
+　　　　istream &seekg(streamoff offset,seek_dir origin);
+　　　　ostream &seekp(streamoff offset,seek_dir origin);
+
+　　streamoff定义于 iostream.h 中，定义有偏移量 offset 所能取得的最大值，seek_dir 表示移动的基准位置，是一个有以下值的枚举：
+
+ios::beg：　　文件开头
+ios::cur：　　文件当前位置
+ios::end：　　文件结尾
+　　这两个函数一般用于二进制文件，因为文本文件会因为系统对字符的解释而可能与预想的值不同。
+
+例：
+
+　　　　 file1.seekg(1234,ios::cur);//把文件的读指针从当前位置向后移1234个字节
+　　　　 file2.seekp(1234,ios::cur);//把文件的写指针从文件当前向后移1234个字节
+　　　　 
+　　　　 __int64 buffsize = sizeof(double)*W_I_D_T_H*H_E_I_G_H_T;
+
+     ifstream H1("./pd_bmp/pd_R_X_1.bin",ios::in|ios::binary);
+    double *h1 = new double[W_I_D_T_H*H_E_I_G_H_T];
+    //图像尺寸W_I_D_T_H*H_E_I_G_H_T
+    H1.read((char*)h1,buffsize);

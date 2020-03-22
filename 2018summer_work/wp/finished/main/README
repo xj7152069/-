@@ -1,0 +1,4 @@
+执行完make之后的操作：
+1.输入执行命令 ./modeling.exe（可得伪谱法模拟所得的时间切片与时间动画）
+2.输入执行命令 ximage <image_modeling.dat n1=501（可显示伪谱法模拟所得的时间切片）
+3.输入执行命令 xmovie <movie_modeling.dat n1=501 n2=501（可动画显示伪谱法模拟的地震波传播过程）

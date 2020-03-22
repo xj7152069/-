@@ -1,0 +1,15 @@
+  k=56
+  k1=1
+  cat asurface210. asurface212. >$k.dat
+for ((i=2;i<=191;i++))
+do
+  j=$[$i*2+210]
+  k2=$[$k+$k1]
+  cat $k.dat asurface$j. >$k2.dat
+
+  rm -f $k.dat
+  k=$[k2]
+  
+done
+
+

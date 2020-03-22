@@ -1,0 +1,6 @@
+
+susort <all_modeldata.su >offset_mo.su offset cdp
+
+sudmotx < offset_mo.su > dmo_mo.su cdpmin=1 cdpmax=1161 dxcdp=5 vrms=3000 noffmix=4
+
+susort <dmo_mo.su>dmo_cdp_mo.su cdp offset

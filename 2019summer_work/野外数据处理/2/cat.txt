@@ -1,0 +1,12 @@
+  k=56
+  cat 1.dat 2.dat >$k.dat
+for ((i=2;i<=13;i++))
+do
+  j=$[i+1]
+  k1=$[k+1]
+  cat $k.dat $j.dat >$k1.dat
+  k=$[k+1]
+  
+done
+
+

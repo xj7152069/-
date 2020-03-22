@@ -1,0 +1,24 @@
+model.dat
+raypath.txt
+isochrone.txt
+firstarrival.txt
+srs.txt
+30 30
+10 10
+0 0
+3 3
+0
+340
+1200000
+
+//input filename of the starting model, binary format
+//output filename of raypath, ascii format
+//output filename of isochrone, ascii format
+//output filename of firstarrival, ascii format
+//input filename of acquisition, ascii format
+//nx,nz of the model
+//dx,dz of the model
+//x0,z0 of the model
+//ndx,ndz
+//the number of the isochrone
+//the velocity of the air layer 

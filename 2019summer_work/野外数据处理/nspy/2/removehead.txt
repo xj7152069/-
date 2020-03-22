@@ -1,0 +1,10 @@
+for ((i=1;i<=14;i++))
+do
+  sustrip<$i.su head=1.h>$i.dat
+done
+
+#n1=2000 n2=24 d1=0.000500
+#nt=2000 ntr=24 dt=0.000500
+#ns=2000
+
+
